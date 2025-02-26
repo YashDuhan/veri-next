@@ -1,6 +1,7 @@
 'use client';
 
-import type { FeatureCard, CardContainerProps } from './types.d';
+import type { CardContainerProps } from './types.d';
+import Image from 'next/image';
 
 export default function CardContainer({ cards, title, bgcolor }: CardContainerProps) {
   return (
@@ -21,9 +22,11 @@ export default function CardContainer({ cards, title, bgcolor }: CardContainerPr
               className="group relative bg-white rounded-2xl shadow-lg transition-all duration-300 hover:shadow-xl hover:-translate-y-1"
             >
               <div className="aspect-[4/3] overflow-hidden rounded-t-2xl">
-                <img
+                <Image
                   src={card.img}
                   alt={card.title}
+                  width={500}
+                  height={375}
                   className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
                 />
               </div>

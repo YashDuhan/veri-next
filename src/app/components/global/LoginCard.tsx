@@ -5,7 +5,7 @@ interface LoginCardProps {
   onClose: () => void;
 }
 
-const LoginCard: React.FC<LoginCardProps> = ({ onClose }) => {
+const LoginCard: React.FC<LoginCardProps> = () => {
   return (
     <div onClick={(e) => e.stopPropagation()}>
       <SignIn fallbackRedirectUrl="/Home" />

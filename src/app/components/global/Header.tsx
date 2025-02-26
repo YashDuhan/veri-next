@@ -1,24 +1,14 @@
 "use client";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
-import { useState, useEffect } from "react";
-import { useClerk, useUser, UserButton } from '@clerk/nextjs';
+import { useState } from "react";
+import { useUser, UserButton } from '@clerk/nextjs';
 import Image from 'next/image';
 import LoginCard from './LoginCard';
 
 function Header() {
-  const { signOut } = useClerk();
-  const { isSignedIn, user } = useUser();
+  const { isSignedIn } = useUser();
 
-  const [currPath, setCurrPath] = useState<string | null>(null);
-
-  const pathname = usePathname();
-
-  useEffect(() => {
-    setCurrPath(pathname);
-  }, [pathname]);
-
-  //Logic to set active link
+  // Logic to set active link
   const [activeLink, setActiveLink] = useState<string>("Home");
 
   const hanldeNavClick = (link: string) => {
@@ -29,12 +19,6 @@ function Header() {
 
   const toggleLoginCard = () => {
     setShowLoginCard(!showLoginCard);
-  };
-
-  const handleSignOut = () => {
-    signOut(() => {
-      window.location.href = '/';
-    });
   };
 
   return (
