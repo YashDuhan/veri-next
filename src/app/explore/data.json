@@ -1,0 +1,179 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "title": "Coca-Cola",
+      "brand": "Coca-Cola",
+      "images": [
+        "/images/explore-assets/1/1.webp",
+        "/images/explore-assets/1/2.webp",
+        "/images/explore-assets/1/3.webp",
+        "/images/explore-assets/1/4.webp",
+        "/images/explore-assets/1/5.webp",
+        "/images/explore-assets/1/6.webp",
+        "/images/explore-assets/1/7.webp",
+        "/images/explore-assets/1/8.webp",
+        "/images/explore-assets/1/9.webp"
+      ],
+      "description": "The original taste of Coca-Cola",
+      "overview": "Coca-Cola is a carbonated soft drink manufactured by The Coca-Cola Company. Originally marketed as a temperance drink and intended as a patent medicine, it was invented in the late 19th century by John Stith Pemberton in Atlanta, Georgia.",
+      "nutrition": "Serving Size: 12 fl oz (355 mL)\nCalories: 140\nTotal Fat: 0g\nSodium: 45mg\nTotal Carbohydrates: 39g\nSugars: 39g\nProtein: 0g",
+      "ingredients": "Carbonated Water, High Fructose Corn Syrup, Caramel Color, Phosphoric Acid, Natural Flavors, Caffeine.",
+      "claims": "No artificial flavors. No preservatives added. Since 1886.",
+      "personalizedOverview": "Coca-Cola is high in sugar content which may not align with your health goals. Consider enjoying this as an occasional treat rather than a regular beverage choice.",
+      "suitability": [
+        { "text": "Does not align with your vegetarian dietary preference.", "positive": false },
+        { "text": "High in sugar content which may not support your health goals.", "positive": false },
+        { "text": "Contains no nutritional benefits beyond calories.", "positive": false },
+        { "text": "May contribute to excess calorie intake if consumed regularly.", "positive": false }
+      ],
+      "safeConsumption": "1 can per week maximum",
+      "nutrientHighlights": [
+        { "text": "No significant nutritional benefits.", "positive": false }
+      ],
+      "matchScore": 35
+    },
+    {
+      "id": 2,
+      "title": "Kerala Banana Chips",
+      "brand": "Beyond Snack",
+      "images": [
+        "/images/explore-assets/2/1.webp",
+        "/images/explore-assets/2/2.webp",
+        "/images/explore-assets/2/3.webp",
+        "/images/explore-assets/2/4.webp",
+        "/images/explore-assets/2/5.webp",
+        "/images/explore-assets/2/6.webp",
+        "/images/explore-assets/2/7.webp",
+        "/images/explore-assets/2/8.webp"
+      ],
+      "description": "Crunchy banana chips made in Kerala style",
+      "overview": "Kerala Banana Chips are a popular South Indian snack made from raw bananas that are sliced, seasoned with turmeric and salt, and then deep-fried in coconut oil. The result is a crunchy, savory snack with a distinctive flavor.",
+      "nutrition": "Serving Size: 30g\nCalories: 160\nTotal Fat: 8g\nSaturated Fat: 7g\nSodium: 230mg\nTotal Carbohydrates: 20g\nDietary Fiber: 2g\nSugars: 0g\nProtein: 1g",
+      "ingredients": "Raw Banana, Coconut Oil, Salt, Turmeric.",
+      "claims": "No preservatives. No artificial colors. Gluten-free. Vegan-friendly.",
+      "personalizedOverview": "These Kerala Banana Chips could be a tasty addition to your vegetarian diet, especially since you're aiming to gain weight, muscle, and boost your overall health. They offer a good source of energy and fiber, which can also help with your digestion. Keep in mind that they are high in calories and fat, so moderation is key. Since they are made with simple ingredients like raw banana, salt, and refined vegetable oil you should be able to enjoy them without concerns.",
+      "suitability": [
+        { "text": "Aligns with your vegetarian dietary preference.", "positive": true },
+        { "text": "Can support your weight gain, muscle gain, and health boost goals due to their caloric density and nutrient content.", "positive": true },
+        { "text": "May improve digestion due to fiber content.", "positive": true },
+        { "text": "High in calories and fat, requires portion control to avoid exceeding daily calorie needs and hindering weight goals. Limit to a small portion to manage calorie intake.", "positive": false }
+      ],
+      "safeConsumption": "50 g weekly",
+      "nutrientHighlights": [
+        { "text": "Fiber: Supports digestion and overall gut health.", "positive": true },
+        { "text": "Potassium: Helps with muscle function and fluid balance.", "positive": true },
+        { "text": "Vitamin B6: Plays a role in brain development and function.", "positive": true }
+      ],
+      "matchScore": 65
+    },
+    {
+      "id": 3,
+      "title": "Bourbon",
+      "brand": "Britannia",
+      "images": [
+        "/images/explore-assets/3/1.webp",
+        "/images/explore-assets/3/2.webp",
+        "/images/explore-assets/3/3.webp",
+        "/images/explore-assets/3/4.webp",
+        "/images/explore-assets/3/5.webp",
+        "/images/explore-assets/3/6.webp",
+        "/images/explore-assets/3/7.webp",
+        "/images/explore-assets/3/8.webp",
+        "/images/explore-assets/3/9.webp"
+      ],
+      "description": "Chocolate flavored sandwich cookies",
+      "overview": "Britannia Bourbon is a popular chocolate-flavored sandwich biscuit with a chocolate cream filling. It has been a favorite in Indian households for generations, known for its rich chocolate taste and crunchy texture.",
+      "nutrition": "Serving Size: 4 biscuits (40g)\nCalories: 186\nTotal Fat: 7.2g\nSaturated Fat: 3.6g\nSodium: 120mg\nTotal Carbohydrates: 28g\nSugars: 14g\nProtein: 2.4g",
+      "ingredients": "Wheat Flour, Sugar, Vegetable Oil, Cocoa Solids, Invert Syrup, Leavening Agents (503(ii), 500(ii)), Salt, Emulsifiers (322(i), 471), Artificial Flavoring Substances.",
+      "claims": "No added preservatives. Source of energy.",
+      "personalizedOverview": "Bourbon biscuits can be a tasty treat but are high in refined sugars and carbohydrates. If you're looking to gain weight, these can contribute to your caloric intake, but they offer limited nutritional benefits beyond energy. Consider balancing these treats with more nutrient-dense foods.",
+      "suitability": [
+        { "text": "Aligns with your vegetarian dietary preference.", "positive": true },
+        { "text": "Can contribute to weight gain goals due to caloric density.", "positive": true },
+        { "text": "Contains refined sugars and low nutritional value.", "positive": false },
+        { "text": "May not support muscle development due to low protein content.", "positive": false }
+      ],
+      "safeConsumption": "4 biscuits (40g) twice weekly",
+      "nutrientHighlights": [
+        { "text": "Iron: Small amount that contributes to blood health.", "positive": true },
+        { "text": "High in refined carbohydrates with limited nutritional benefits.", "positive": false }
+      ],
+      "matchScore": 45
+    },
+    {
+      "id": 4,
+      "title": "Peanut Butter Creamy",
+      "brand": "MuscleBlaze MB Fit",
+      "images": [
+        "/images/explore-assets/4/1.webp",
+        "/images/explore-assets/4/2.webp",
+        "/images/explore-assets/4/3.webp",
+        "/images/explore-assets/4/4.webp",
+        "/images/explore-assets/4/5.webp",
+        "/images/explore-assets/4/6.webp",
+        "/images/explore-assets/4/7.webp",
+        "/images/explore-assets/4/8.webp",
+        "/images/explore-assets/4/9.webp",
+        "/images/explore-assets/4/10.webp"
+      ],
+      "description": "High protein peanut butter with smooth texture",
+      "overview": "MuscleBlaze MB Fit Peanut Butter is a protein-rich spread made from roasted peanuts. It's specially formulated for fitness enthusiasts and athletes, providing a good source of protein and healthy fats to support muscle building and recovery.",
+      "nutrition": "Serving Size: 2 tbsp (32g)\nCalories: 190\nTotal Fat: 16g\nSaturated Fat: 3g\nSodium: 150mg\nTotal Carbohydrates: 7g\nDietary Fiber: 2g\nSugars: 2g\nProtein: 8g",
+      "ingredients": "Roasted Peanuts (90%), Vegetable Oil, Salt, Emulsifier (INS 471).",
+      "claims": "High protein. No added sugar. Gluten-free. Non-GMO.",
+      "personalizedOverview": "This peanut butter is an excellent choice for your goals of gaining weight and building muscle. With 8g of protein per serving, it provides essential amino acids for muscle repair and growth. The healthy fats can help you meet your caloric needs for weight gain while supporting overall health.",
+      "suitability": [
+        { "text": "Aligns with your vegetarian dietary preference.", "positive": true },
+        { "text": "Excellent for weight gain and muscle building goals due to high protein content.", "positive": true },
+        { "text": "Provides healthy fats that support overall health.", "positive": true },
+        { "text": "High in calories, so portion control is recommended.", "positive": false }
+      ],
+      "safeConsumption": "2-3 tablespoons daily",
+      "nutrientHighlights": [
+        { "text": "Protein: Essential for muscle repair and growth.", "positive": true },
+        { "text": "Healthy Fats: Support hormone production and nutrient absorption.", "positive": true },
+        { "text": "Magnesium: Important for muscle and nerve function.", "positive": true },
+        { "text": "Vitamin E: Antioxidant properties that support cell health.", "positive": true }
+      ],
+      "matchScore": 85
+    },
+    {
+      "id": 5,
+      "title": "Muesli Fruit, Nut & Seeds",
+      "brand": "Kellogg's",
+      "images": [
+        "/images/explore-assets/5/1.webp",
+        "/images/explore-assets/5/2.webp",
+        "/images/explore-assets/5/3.webp",
+        "/images/explore-assets/5/4.webp",
+        "/images/explore-assets/5/5.webp",
+        "/images/explore-assets/5/6.webp",
+        "/images/explore-assets/5/7.webp",
+        "/images/explore-assets/5/8.webp",
+        "/images/explore-assets/5/9.webp",
+        "/images/explore-assets/5/10.webp"
+      ],
+      "description": "Nutritious breakfast cereal with fruits and nuts",
+      "overview": "Kellogg's Muesli is a nutritious breakfast cereal made with a blend of whole grains, fruits, nuts, and seeds. It's designed to provide a balanced start to your day with fiber, protein, and essential nutrients.",
+      "nutrition": "Serving Size: 45g\nCalories: 170\nTotal Fat: 5g\nSaturated Fat: 0.5g\nSodium: 5mg\nTotal Carbohydrates: 28g\nDietary Fiber: 3g\nSugars: 10g\nProtein: 4g",
+      "ingredients": "Whole Grain Wheat, Whole Grain Oats, Dried Fruits (Raisins, Apples, Papaya), Nuts (Almonds, Hazelnuts), Seeds (Pumpkin Seeds, Sunflower Seeds), Brown Sugar, Honey.",
+      "claims": "No artificial colors or flavors. High in fiber. Source of 8 vitamins and minerals.",
+      "personalizedOverview": "This muesli is a great addition to your vegetarian diet for weight gain and overall health. The combination of whole grains, fruits, nuts, and seeds provides a good balance of complex carbohydrates, healthy fats, and plant-based proteins. The fiber content supports digestive health, while the variety of ingredients offers a range of vitamins and minerals.",
+      "suitability": [
+        { "text": "Aligns with your vegetarian dietary preference.", "positive": true },
+        { "text": "Supports weight gain goals with balanced nutrition.", "positive": true },
+        { "text": "Contains fiber for digestive health.", "positive": true },
+        { "text": "Provides a variety of nutrients from whole grains, fruits, nuts, and seeds.", "positive": true }
+      ],
+      "safeConsumption": "45-60g daily",
+      "nutrientHighlights": [
+        { "text": "Fiber: Supports digestive health and helps maintain steady energy levels.", "positive": true },
+        { "text": "Iron: Important for oxygen transport in the blood.", "positive": true },
+        { "text": "B Vitamins: Support energy metabolism and nervous system function.", "positive": true },
+        { "text": "Healthy Fats: From nuts and seeds support overall health.", "positive": true }
+      ],
+      "matchScore": 80
+    }
+  ]
+}
