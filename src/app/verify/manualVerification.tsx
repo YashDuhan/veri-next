@@ -116,8 +116,8 @@ export default function ManualVerification() {
             <div>
               <h3 className="font-medium text-sm mb-1">Example</h3>
               <div className="text-sm text-muted-foreground space-y-2">
-                <p><strong>Claims:</strong> "100% Organic, Non-GMO, No Artificial Preservatives, Sustainably Sourced"</p>
-                <p><strong>Ingredients:</strong> "Organic rolled oats, organic honey, organic almonds, organic coconut oil, organic cinnamon, sea salt"</p>
+                <p><strong>Claims:</strong> &quot;100% Organic, Non-GMO, No Artificial Preservatives, Sustainably Sourced&quot;</p>
+                <p><strong>Ingredients:</strong> &quot;Organic rolled oats, organic honey, organic almonds, organic coconut oil, organic cinnamon, sea salt&quot;</p>
               </div>
             </div>
           </div>

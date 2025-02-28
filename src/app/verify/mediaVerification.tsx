@@ -9,9 +9,18 @@ import { checkImage } from '@/app/integration/imgCheckIntegration';
 import { verifyManually } from '@/app/integration/integration-core';
 import { ManualVerificationResponse } from '@/app/integration/integration-types';
 import PreviewResponse from './previewResponse';
+import Image from 'next/image';
 
 // Define the crop area type
 interface CropArea {
+  x: number;
+  y: number;
+  width: number;
+  height: number;
+}
+
+// Define proper types for the cropped area
+interface CroppedAreaPixels {
   x: number;
   y: number;
   width: number;
@@ -261,7 +270,7 @@ export default function MediaVerification() {
   }, [ingredientsText]);
 
   // Handle crop complete
-  const onCropComplete = useCallback((croppedArea: any, croppedAreaPixels: any) => {
+  const onCropComplete = useCallback((croppedArea: CropArea, croppedAreaPixels: CroppedAreaPixels) => {
     setCroppedAreaPixels(croppedAreaPixels);
   }, []);
 
@@ -409,7 +418,7 @@ export default function MediaVerification() {
             <div>
               <h3 className="text-base font-medium mb-2">Product Claims Image</h3>
               <p className="text-sm text-muted-foreground mb-4">
-                Upload an image of the product's front label showing its claims.
+                Upload an image of the product&apos;s front label showing its claims.
               </p>
               
               {!claimsImage ? (
@@ -440,10 +449,13 @@ export default function MediaVerification() {
               ) : (
                 <div className={`${claimsText ? 'grid grid-cols-1 md:grid-cols-2 gap-4' : ''}`}>
                   <div className="relative rounded-lg overflow-hidden border">
-                    <img 
+                    <Image 
                       src={claimsImage} 
                       alt="Product Claims" 
                       className="w-full h-auto max-h-[300px] object-contain"
+                      width={500}
+                      height={300}
+                      style={{ objectFit: 'contain', maxHeight: '300px' }}
                     />
                     <Button 
                       variant="destructive" 
@@ -493,7 +505,7 @@ export default function MediaVerification() {
             <div>
               <h3 className="text-base font-medium mb-2">Product Ingredients Image</h3>
               <p className="text-sm text-muted-foreground mb-4">
-                Upload an image of the product's ingredients list.
+                Upload an image of the product&apos;s ingredients list.
               </p>
               
               {!ingredientsImage ? (
@@ -524,10 +536,13 @@ export default function MediaVerification() {
               ) : (
                 <div className={`${ingredientsText ? 'grid grid-cols-1 md:grid-cols-2 gap-4' : ''}`}>
                   <div className="relative rounded-lg overflow-hidden border">
-                    <img 
+                    <Image 
                       src={ingredientsImage} 
                       alt="Product Ingredients" 
                       className="w-full h-auto max-h-[300px] object-contain"
+                      width={500}
+                      height={300}
+                      style={{ objectFit: 'contain', maxHeight: '300px' }}
                     />
                     <Button 
                       variant="destructive" 

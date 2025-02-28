@@ -2,15 +2,11 @@
 import React from 'react';
 import Image from 'next/image';
 import { useUser } from '@clerk/nextjs';
-import { useTheme } from 'next-themes';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { Sparkles, CheckCircle, Activity, UserCircle } from "lucide-react";
+import { Sparkles, CheckCircle, Activity } from "lucide-react";
 
 export default function HomePage() {
   const { user } = useUser();
-  const { resolvedTheme } = useTheme();
-  const isPurpleTheme = resolvedTheme === 'purple';
 
   return (
     <div className="min-h-screen bg-background">

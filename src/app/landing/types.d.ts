@@ -9,5 +9,4 @@ export interface FeatureCard {
 export interface CardContainerProps {
   cards: FeatureCard[];
   title: string;
-  bgcolor: string;
 } 

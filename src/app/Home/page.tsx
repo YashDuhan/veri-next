@@ -17,7 +17,7 @@ import ExplorePage from "@/app/explore/page";
 import HealthCheckPage from "@/app/health-check/page";
 
 export default function Home() {
-  const { user } = useUser();
+  const { isSignedIn } = useUser();
   const { resolvedTheme } = useTheme();
   const router = useRouter();
   const { signOut } = useClerk();
@@ -40,8 +40,16 @@ export default function Home() {
       signOut(() => {
         router.push('/');
       });
-    } else {
+    } else if (href !== currentRoute) {
+      // Only navigate if the route is different
       setCurrentRoute(href);
+      
+      // For routes that require authentication, check if user is signed in
+      if ((href === '/verify' || href === '/health-check' || href === '/explore') && !isSignedIn) {
+        // redirect to login page
+        router.push('/');
+        return;
+      }
     }
   };
 

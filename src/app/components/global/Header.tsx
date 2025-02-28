@@ -1,5 +1,4 @@
 "use client";
-import Link from "next/link";
 import { useState } from "react";
 import { useUser, UserButton } from '@clerk/nextjs';
 import { dark, shadesOfPurple } from '@clerk/themes';

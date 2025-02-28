@@ -35,5 +35,5 @@ const cards: FeatureCard[] = [
 ];
 
 export default function FeatureCards() {
-  return <CardContainer cards={cards} title="Features" bgcolor="transparent" />;
+  return <CardContainer cards={cards} title="Features" />;
 } 

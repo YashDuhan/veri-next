@@ -54,7 +54,7 @@ export async function verifyManually(claims: string, ingredients: string): Promi
     const extractedText = data['extracted-text'] || '';
     const parsedResult = JSON.parse(extractedText) as ManualVerificationResponse;
     return parsedResult;
-  } catch (error) {
+  } catch {
     throw new Error('Failed to parse');
   }
 }
@@ -103,7 +103,7 @@ export async function checkRawText(rawText: string): Promise<ManualVerificationR
     const extractedText = data['extracted-text'] || '';
     const parsedResult = JSON.parse(extractedText) as ManualVerificationResponse;
     return parsedResult;
-  } catch (error) {
+  } catch {
     throw new Error('Failed to parse verification result');
   }
 }

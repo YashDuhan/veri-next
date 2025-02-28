@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { Separator } from '@/components/ui/separator';
-import Link from 'next/link';
 import Image from 'next/image';
 import TermsOfServiceModal from './TermsOfServiceModal';
 
@@ -32,7 +31,7 @@ const Footer: React.FC<FooterProps> = ({ onOpenTerms }) => {
             </div>
             <p className="text-sm text-muted-foreground max-w-md">
               VeriTrust uses AI to verify brand claims and analyze ingredients to determine if they are suitable for users. 
-              Our objective is not to harm any brand's image, but to provide transparency. 
+              Our objective is not to harm any brand&apos;s image, but to provide transparency. 
               Please note that AI-based verifications may not always be 100% accurate.
             </p>
           </div>

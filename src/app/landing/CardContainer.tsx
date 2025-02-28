@@ -2,15 +2,14 @@
 
 import type { CardContainerProps } from './types';
 import Image from 'next/image';
-import { 
-  Card, 
-  CardContent, 
-  CardDescription, 
-  CardHeader, 
-  CardTitle 
+import {
+  Card,
+  CardDescription,
+  CardHeader,
+  CardTitle
 } from '@/components/ui/card';
 
-export default function CardContainer({ cards, title, bgcolor }: CardContainerProps) {
+export default function CardContainer({ cards, title }: CardContainerProps) {
   return (
     <div className="w-full py-20 bg-primary/5">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -24,7 +23,7 @@ export default function CardContainer({ cards, title, bgcolor }: CardContainerPr
         </div>
         <div className="mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-10">
           {cards.map((card) => (
-            <Card 
+            <Card
               key={card.id}
               className="feature-card overflow-hidden transition-all duration-300 hover:shadow-lg hover:-translate-y-1 border border-primary/20"
             >

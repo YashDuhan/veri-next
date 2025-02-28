@@ -55,7 +55,7 @@ const TermsOfServiceModal: React.FC<TermsOfServiceModalProps> = ({ onClose }) =>
           <section className="mb-6">
             <h3 className="text-lg font-semibold mb-2">3. Brand Neutrality</h3>
             <p className="text-muted-foreground mb-4">
-              VeriTrust does not aim to harm any brand's image or reputation. Our objective is to provide transparent 
+              VeriTrust does not aim to harm any brand&apos;s image or reputation. Our objective is to provide transparent 
               information about products based on available data. We do not make judgments about brands or their products, 
               but rather present analysis based on factual information.
             </p>

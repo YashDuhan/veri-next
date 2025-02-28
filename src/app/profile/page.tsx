@@ -9,7 +9,7 @@ import { useTheme } from 'next-themes';
 export default function Profile() {
   const { resolvedTheme } = useTheme();
 
-  // Determine the appropriate theme based on the system theme
+  // Determine the appropriate theme
   const getClerkTheme = () => {
     if (resolvedTheme === 'dark') {
       return dark;
