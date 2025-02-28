@@ -301,6 +301,28 @@ export default function MediaVerification() {
     }
   };
 
+  // Continue without cropping
+  const continueWithoutCropping = () => {
+    if (currentImage && imageType) {
+      // Use the original image without cropping
+      if (imageType === 'claims') {
+        setClaimsImage(currentImage);
+        setClaimsText('');
+      } else if (imageType === 'ingredients') {
+        setIngredientsImage(currentImage);
+        setIngredientsText('');
+      }
+      
+      // Reset cropping state
+      setIsCropping(false);
+      setCurrentImage(null);
+      setImageType(null);
+      setCrop({ x: 0, y: 0 });
+      setZoom(1);
+      setCroppedAreaPixels(null);
+    }
+  };
+
   // Cancel crop
   const cancelCrop = () => {
     setIsCropping(false);
@@ -398,6 +420,9 @@ export default function MediaVerification() {
           <CardFooter className="flex justify-between">
             <Button variant="outline" onClick={cancelCrop}>
               Cancel
+            </Button>
+            <Button variant="secondary" onClick={continueWithoutCropping}>
+              Continue Without Cropping
             </Button>
             <Button onClick={applyCrop}>
               <Crop className="h-4 w-4 mr-2" />
