@@ -4,7 +4,8 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Link, ExternalLink, AlertTriangle } from "lucide-react";
 import { extractFromUrl, checkRawText } from '@/app/integration/integration-core';
-import { ManualVerificationResponse } from '@/app/integration/integration-types';
+import { ManualVerificationResponse, AlternativesResponse } from '@/app/integration/integration-types';
+import { API_BASE_URL } from '@/app/api/api';
 import PreviewResponse from './previewResponse';
 
 export default function URLVerification() {
@@ -43,7 +44,36 @@ export default function URLVerification() {
         // Step 2: Send the raw response to check-raw endpoint
         const verificationResponse = await checkRawText(extractionResult.raw_response);
         
-        // Step 3: Set the verification result
+        // Step 3: Fetch alternatives directly(MAIN ROUTE ISN'T WORKING)
+        try {
+          const alternativesResponse = await fetch(`${API_BASE_URL}/suggestions`, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              'accept': 'application/json'
+            },
+            body: JSON.stringify({
+              claims: extractionResult.raw_response,
+              ingredients: ''
+            }),
+          });
+          
+          if (alternativesResponse.ok) {
+            const alternativesData = await alternativesResponse.json() as { response: string };
+            if (alternativesData.response) {
+              try {
+                const parsedAlternatives = JSON.parse(alternativesData.response) as AlternativesResponse;
+                verificationResponse.alternatives = parsedAlternatives.alternatives;
+              } catch (error) {
+                console.error('Failed to parse alternatives:', error);
+              }
+            }
+          }
+        } catch (error) {
+          console.error('Failed to fetch alternatives:', error);
+        }
+        
+        // Step 4: Set the verification result
         setVerificationResult(verificationResponse);
         setShowResult(true);
       } else {
