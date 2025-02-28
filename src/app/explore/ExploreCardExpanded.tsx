@@ -7,7 +7,6 @@ import { Card, CardContent } from '@/components/ui/card';
 import { ChevronLeft, ChevronRight, X, Check, AlertCircle } from 'lucide-react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { useTheme } from 'next-themes';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Progress } from '@/components/ui/progress';
 
 interface SuitabilityItem {
