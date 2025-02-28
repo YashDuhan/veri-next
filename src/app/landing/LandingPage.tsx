@@ -12,6 +12,10 @@ const FeatureCards = dynamic(() => import('./FeatureCards'), {
   ssr: true
 });
 
+const AccessMethods = dynamic(() => import('./AccessMethods'), {
+  ssr: true
+});
+
 export default function LandingPage() {
   const [showLoginCard, setShowLoginCard] = useState(false);
   const [showTermsModal, setShowTermsModal] = useState(false);
@@ -87,6 +91,9 @@ export default function LandingPage() {
 
         {/* Feature Cards Section */}
         <FeatureCards />
+
+        {/* Access Methods Section */}
+        <AccessMethods />
       </main>
       
       <Footer onOpenTerms={openTermsModal} />
