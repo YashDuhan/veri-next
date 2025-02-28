@@ -2,75 +2,175 @@
 import Link from "next/link";
 import { useState } from "react";
 import { useUser, UserButton } from '@clerk/nextjs';
+import { dark, shadesOfPurple } from '@clerk/themes';
 import Image from 'next/image';
-import LoginCard from './LoginCard';
+import { Button } from "@/components/ui/button";
+import { ThemeToggle } from "@/components/ui/theme-toggle";
+import { toast } from "sonner";
+import { useRouter } from "next/navigation";
+import { AlertCircle } from "lucide-react";
+import { useTheme } from 'next-themes';
 
-function Header() {
+interface HeaderProps {
+  onLoginClick?: () => void;
+  onTermsClick?: () => void;
+}
+
+function Header({ onLoginClick, onTermsClick }: HeaderProps) {
   const { isSignedIn } = useUser();
+  const router = useRouter();
+  const { resolvedTheme } = useTheme();
+  const isDarkMode = resolvedTheme === 'dark';
+  const isPurpleMode = resolvedTheme === 'purple';
+
+  // Update Clerk theme based on the current theme
+  const getClerkTheme = () => {
+    if (isDarkMode) return dark;
+    if (isPurpleMode) return shadesOfPurple;
+    return undefined; // Default light theme
+  };
 
   // Logic to set active link
   const [activeLink, setActiveLink] = useState<string>("Home");
+  const [isNavigating, setIsNavigating] = useState(false);
 
-  const hanldeNavClick = (link: string) => {
+  const handleNavClick = (link: string, path: string, requiresAuth: boolean = true) => {
+    // Special case for Terms of Service
+    if (link === "Terms" && onTermsClick) {
+      onTermsClick();
+      return;
+    }
+    
     setActiveLink(link);
-  };
-
-  const [showLoginCard, setShowLoginCard] = useState(false);
-
-  const toggleLoginCard = () => {
-    setShowLoginCard(!showLoginCard);
+    
+    if (requiresAuth && !isSignedIn) {
+      // Show toast for non-logged in users
+      toast.error("Authentication Required", {
+        description: "You need to sign in to access this feature.",
+        action: {
+          label: "Sign In",
+          onClick: () => onLoginClick ? onLoginClick() : null,
+        },
+        icon: <AlertCircle className="h-5 w-5 text-destructive" />,
+        duration: 1000, // 1 seconds timeout
+      });
+    } else {
+      // Prevent multiple clicks
+      if (isNavigating) return;
+      
+      setIsNavigating(true);
+      
+      // Show loading toast
+      const toastId = toast.loading("Navigating to page...", {
+        duration: 2500, // 2.5 seconds timeout
+      });
+      
+      // Navigate after a short delay
+      setTimeout(() => {
+        toast.dismiss(toastId);
+        router.push(path);
+        setIsNavigating(false);
+      }, 2500); // 2.5 seconds timeout
+    }
   };
 
   return (
-    <div className="w-full h-[15vh] flex items-center justify-between px-8 border-b border-gray-300">
-      {/* Logo Section */}
-      <div className="w-1/10 flex justify-center items-center mr-32">
-        <Image src="/images/ai.png" alt="logo" width={60} height={60} className="w-full" />
-      </div>
+    <header className="w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+      <div className="container flex h-16 items-center justify-between px-4 md:px-8">
+        {/* Logo Section */}
+        <div className="flex items-center gap-2">
+          <Image src="/images/ai.png" alt="logo" width={40} height={40} />
+          <span className="font-semibold text-lg hidden md:inline-block">VeriTrust</span>
+        </div>
 
-      {/* Navigation Menu */}
-      <ul className="flex items-center list-none gap-8 p-4 rounded-lg">
-        <Link href="/Home" className={`relative cursor-pointer transition duration-400 ${activeLink === "Home" && "text-transparent bg-clip-text bg-gradient-to-r from-purple-600 via-pink-600 to-purple-600"}`} onClick={() => hanldeNavClick("Home")}>Home</Link>
+        {/* Navigation Menu */}
+        <nav className="hidden md:flex items-center space-x-6">
+          <button 
+            className={`text-sm font-medium transition-colors hover:text-primary ${activeLink === "Home" ? "text-primary" : "text-muted-foreground"}`} 
+            onClick={() => handleNavClick("Home", "/Home", false)}
+            disabled={isNavigating}
+          >
+            Home
+          </button>
 
-        <Link href="/verify" className={`relative cursor-pointer transition duration-400 ${activeLink === "Verify" && "text-transparent bg-clip-text bg-gradient-to-r from-purple-600 via-pink-600 to-purple-600"}`} onClick={() => hanldeNavClick("Verify")}>Verify</Link>
+          <button 
+            className={`text-sm font-medium transition-colors hover:text-primary ${activeLink === "Verify" ? "text-primary" : "text-muted-foreground"}`} 
+            onClick={() => handleNavClick("Verify", "/verify")}
+            disabled={isNavigating}
+          >
+            Verify
+          </button>
 
-        <Link href="/explore" className={`relative cursor-pointer transition duration-400 ${activeLink === "Explore" && "text-transparent bg-clip-text bg-gradient-to-r from-purple-600 via-pink-600 to-purple-600"}`} onClick={() => hanldeNavClick("Explore")}>Explore</Link>
+          <button 
+            className={`text-sm font-medium transition-colors hover:text-primary ${activeLink === "Explore" ? "text-primary" : "text-muted-foreground"}`} 
+            onClick={() => handleNavClick("Explore", "/explore")}
+            disabled={isNavigating}
+          >
+            Explore
+          </button>
 
-        <Link href="/discover" className={`relative cursor-pointer transition duration-400 ${activeLink === "Discover" && "text-transparent bg-clip-text bg-gradient-to-r from-purple-600 via-pink-600 to-purple-600"}`} onClick={() => hanldeNavClick("Discover")}>Discover</Link>
+          <button 
+            className={`text-sm font-medium transition-colors hover:text-primary ${activeLink === "Discover" ? "text-primary" : "text-muted-foreground"}`} 
+            onClick={() => handleNavClick("Discover", "/discover")}
+            disabled={isNavigating}
+          >
+            Discover
+          </button>
 
-        <Link href="/about" className={`relative cursor-pointer transition duration-400 ${activeLink === "AboutUS" && "text-transparent bg-clip-text bg-gradient-to-r from-purple-600 via-pink-600 to-purple-600"}`} onClick={() => hanldeNavClick("AboutUs")}>About Us</Link>
-      </ul>
+          <button 
+            className={`text-sm font-medium transition-colors hover:text-primary ${activeLink === "AboutUS" ? "text-primary" : "text-muted-foreground"}`} 
+            onClick={() => handleNavClick("AboutUs", "/about", false)}
+            disabled={isNavigating}
+          >
+            About Us
+          </button>
+          
+          <button 
+            className={`text-sm font-medium transition-colors hover:text-primary ${activeLink === "Terms" ? "text-primary" : "text-muted-foreground"}`} 
+            onClick={() => handleNavClick("Terms", "", false)}
+            disabled={isNavigating}
+          >
+            Terms of Service
+          </button>
+        </nav>
 
-      {/* Profile & Auth Buttons */}
-      <ul className="flex items-center gap-4">
-        {isSignedIn ? (
-          <>
-            <div className="scale-70">
+        {/* Profile & Auth Buttons */}
+        <div className="flex items-center gap-4">
+          <ThemeToggle />
+          {isSignedIn ? (
             <UserButton 
               appearance={{
+                baseTheme: getClerkTheme(),
                 elements: {
-                  userButtonAvatarBox: "w-10 h-10",
-                  userButtonTrigger: "focus:shadow-outline-purple"
+                  userButtonAvatarBox: "w-10 h-10 border-border",
+                  userButtonTrigger: "focus:shadow-outline-primary border-border",
+                  userButtonPopoverCard: "border-border",
+                  userButtonPopoverActionButton: "hover:bg-secondary",
+                  userButtonPopoverActionButtonText: "text-foreground",
+                  userButtonPopoverActionButtonIcon: "text-muted-foreground",
+                  userButtonPopoverFooter: "border-border"
                 }
               }}
             />
-            </div>
-          </>
-        ) : (
-          <button onClick={toggleLoginCard} className="button">Log In</button>
-        )}
-      </ul>
-
-      {showLoginCard && (
-        <div 
-          className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50" 
-          onClick={toggleLoginCard}
-        >
-          <LoginCard onClose={toggleLoginCard} />
+          ) : (
+            <Button 
+              onClick={onLoginClick} 
+              variant="default" 
+              className="bg-primary hover:bg-primary/90"
+              disabled={isNavigating}
+            >
+              Log In
+            </Button>
+          )}
         </div>
-      )}
-    </div>
+      </div>
+    </header>
   );
 }
+
+Header.defaultProps = {
+  onLoginClick: undefined,
+  onTermsClick: undefined
+};
 
 export default Header; 

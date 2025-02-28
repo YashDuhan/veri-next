@@ -4,6 +4,8 @@ import "./globals.css";
 import {
   ClerkProvider,
 } from '@clerk/nextjs';
+import { ThemeProvider } from "@/components/ui/theme-provider";
+import { Toaster } from "sonner";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -27,11 +29,43 @@ export default function RootLayout({
 }>) {
   return (
     <ClerkProvider>
-      <html lang="en">
+      <html lang="en" suppressHydrationWarning>
         <body
-          className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+          className={`${geistSans.variable} ${geistMono.variable} antialiased relative`}
         >
-          {children}
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="system"
+            enableSystem
+            disableTransitionOnChange
+          >
+            <Toaster 
+              position="top-center" 
+              closeButton
+              theme="light"
+              className="toaster-override"
+              toastOptions={{
+                className: "toast-override",
+                style: {
+                  background: "hsl(var(--card))",
+                  color: "hsl(var(--card-foreground))",
+                  border: "1px solid hsl(var(--border))",
+                  boxShadow: "0 4px 12px rgba(0, 0, 0, 0.1)",
+                  zIndex: 9999,
+                },
+                actionButtonStyle: {
+                  backgroundColor: "hsl(var(--primary))",
+                  color: "hsl(var(--primary-foreground))",
+                  fontSize: "12px",
+                  fontWeight: "500",
+                  borderRadius: "4px",
+                },
+              }}
+            />
+            <div className="relative">
+              {children}
+            </div>
+          </ThemeProvider>
         </body>
       </html>
     </ClerkProvider>

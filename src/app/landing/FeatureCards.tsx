@@ -1,6 +1,6 @@
 'use client';
 
-import type { FeatureCard } from './types.d';
+import type { FeatureCard } from './types';
 import CardContainer from './CardContainer';
 
 const cards: FeatureCard[] = [
