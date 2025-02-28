@@ -25,6 +25,73 @@ export async function extractTextFromImage(imageBlob: Blob): Promise<string> {
   return extractedText;
 }
 
+// Health Check API endpoint
+export interface HealthCheckInput {
+  age: number;
+  height: number;
+  weight: number;
+  gender: string;
+  activity_level: string;
+  medical_conditions: string;
+  medications: string;
+  diet: string;
+  sleep: number;
+  stress: number;
+  exercise: string;
+}
+
+export interface HealthRisk {
+  risk: string;
+  severity: string;
+  description: string;
+}
+
+export interface Recommendation {
+  category: string;
+  suggestion: string;
+  importance: string;
+}
+
+export interface LifestyleChange {
+  area: string;
+  current_status: string;
+  target: string;
+  timeframe: string;
+}
+
+export interface HealthCheckResponse {
+  general_assessment: string;
+  bmi: {
+    value: number;
+    category: string;
+    interpretation: string;
+  };
+  health_risks: HealthRisk[];
+  recommendations: Recommendation[];
+  lifestyle_changes: LifestyleChange[];
+  overall_status: string;
+}
+
+export async function checkHealth(input: HealthCheckInput): Promise<HealthCheckResponse> {
+  // Send request to API
+  const apiResponse = await fetch(`${API_BASE_URL}/check-health`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'accept': 'application/json'
+    },
+    body: JSON.stringify(input),
+  });
+  
+  // Handle errors
+  if (!apiResponse.ok) {
+    throw new Error(`error: ${apiResponse.status}`);
+  }
+  
+  // Parse response
+  const data = await apiResponse.json() as HealthCheckResponse;
+  return data;
+}
 
 // Manual Verification route
 export async function verifyManually(claims: string, ingredients: string): Promise<ManualVerificationResponse> {
