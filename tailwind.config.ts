@@ -56,15 +56,37 @@ export default {
   			md: 'calc(var(--radius) - 2px)',
   			sm: 'calc(var(--radius) - 4px)'
   		},
-      keyframes: {
-        gradientMove: {
-          '0%, 100%': { backgroundPosition: '20% 70%' },
-          '50%': { backgroundPosition: '100% 70%' },
-        }
-      },
-      animation: {
-        gradient: 'gradientMove 4s infinite linear',
-      }
+  		keyframes: {
+  			gradientMove: {
+  				'0%, 100%': {
+  					backgroundPosition: '20% 70%'
+  				},
+  				'50%': {
+  					backgroundPosition: '100% 70%'
+  				}
+  			},
+  			'accordion-down': {
+  				from: {
+  					height: '0'
+  				},
+  				to: {
+  					height: 'var(--radix-accordion-content-height)'
+  				}
+  			},
+  			'accordion-up': {
+  				from: {
+  					height: 'var(--radix-accordion-content-height)'
+  				},
+  				to: {
+  					height: '0'
+  				}
+  			}
+  		},
+  		animation: {
+  			gradient: 'gradientMove 4s infinite linear',
+  			'accordion-down': 'accordion-down 0.2s ease-out',
+  			'accordion-up': 'accordion-up 0.2s ease-out'
+  		}
   	}
   },
   plugins: [

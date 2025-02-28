@@ -74,6 +74,14 @@ export default function LandingPage() {
             >
               Terms of Service
             </Button>
+            <Button 
+              variant="outline" 
+              size="lg" 
+              className="mt-4 border-primary/20 hover:border-primary/40 text-primary hover:bg-primary/10"
+              asChild
+            >
+              <a href="/landing/APIDocs">API Documentation</a>
+            </Button>
           </div>
         </div>
 
