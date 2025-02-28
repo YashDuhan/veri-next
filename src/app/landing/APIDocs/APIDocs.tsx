@@ -136,6 +136,94 @@ const apiSpec = {
           }
         ]
       }
+    },
+    "/suggestions": {
+      post: {
+        summary: "Suggestions",
+        description: "Get suggestions based on claims and ingredients",
+        requestBody: {
+          content: {
+            "application/json": {
+              schema: {
+                type: "object",
+                required: ["claims", "ingredients"],
+                properties: {
+                  claims: {
+                    type: "string",
+                    description: "The claims to analyze"
+                  },
+                  ingredients: {
+                    type: "string",
+                    description: "The ingredients list to analyze"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/check-health": {
+      post: {
+        summary: "Check Health",
+        description: "Analyze health data and provide recommendations",
+        requestBody: {
+          content: {
+            "application/json": {
+              schema: {
+                type: "object",
+                required: ["age", "height", "weight", "gender", "activity_level", "sleep", "stress"],
+                properties: {
+                  age: {
+                    type: "integer",
+                    description: "Age in years"
+                  },
+                  height: {
+                    type: "number",
+                    description: "Height in centimeters"
+                  },
+                  weight: {
+                    type: "number",
+                    description: "Weight in kilograms"
+                  },
+                  gender: {
+                    type: "string",
+                    description: "Gender identity"
+                  },
+                  activity_level: {
+                    type: "string",
+                    description: "Activity level"
+                  },
+                  medical_conditions: {
+                    type: "string",
+                    description: "Any existing medical conditions"
+                  },
+                  medications: {
+                    type: "string",
+                    description: "Current medications"
+                  },
+                  diet: {
+                    type: "string",
+                    description: "Description of typical diet"
+                  },
+                  sleep: {
+                    type: "number",
+                    description: "Average hours of sleep per day"
+                  },
+                  stress: {
+                    type: "integer",
+                    description: "Stress level on a scale of 1-10"
+                  },
+                  exercise: {
+                    type: "string",
+                    description: "Description of exercise routine"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
     }
   }
 };
