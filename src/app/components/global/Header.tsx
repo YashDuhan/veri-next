@@ -109,14 +109,6 @@ function Header({ onLoginClick, onTermsClick }: HeaderProps) {
           </button>
 
           <button 
-            className={`text-sm font-medium transition-colors hover:text-primary ${activeLink === "Discover" ? "text-primary" : "text-muted-foreground"}`} 
-            onClick={() => handleNavClick("Discover", "/discover")}
-            disabled={isNavigating}
-          >
-            Discover
-          </button>
-
-          <button 
             className={`text-sm font-medium transition-colors hover:text-primary ${activeLink === "Terms" ? "text-primary" : "text-muted-foreground"}`} 
             onClick={() => handleNavClick("Terms", "", false)}
             disabled={isNavigating}
