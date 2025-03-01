@@ -1,5 +1,5 @@
 import { API_BASE_URL } from '@/app/api/api';
-import { ImageTextExtractionResponse, ManualVerificationResponse, AlternativesResponse, AlternativeProduct } from './integration-types';
+import { ImageTextExtractionResponse, ManualVerificationResponse, AlternativesResponse, AlternativeProduct, ExploreProduct, ExploreProductsResponse } from './integration-types';
 
 // check-image API endpoint
 export async function extractTextFromImage(imageBlob: Blob): Promise<string> {
@@ -250,4 +250,24 @@ export async function checkRawText(rawText: string): Promise<ManualVerificationR
   } catch {
     throw new Error('Failed to parse verification result');
   }
+}
+
+// Get Explore Products route
+export async function getExploreProducts(): Promise<ExploreProduct[]> {
+  // Send request to API
+  const apiResponse = await fetch(`${API_BASE_URL}/get-from-s3`, {
+    method: 'GET',
+    headers: {
+      'accept': 'application/json'
+    },
+  });
+  
+  // Handle errors
+  if (!apiResponse.ok) {
+    throw new Error(`API error: ${apiResponse.status}`);
+  }
+  
+  // Parse response and return products directly
+  const data = await apiResponse.json() as ExploreProductsResponse;
+  return data.data.products;
 }

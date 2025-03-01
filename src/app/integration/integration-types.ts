@@ -1,3 +1,5 @@
+// Declared types to fix lints
+
 // API response type
 export interface ImageTextExtractionResponse {
   'extracted-text': string;
@@ -43,4 +45,41 @@ export interface ManualVerificationResult {
   isLoading: boolean;
   data?: ManualVerificationResponse;
   error?: string;
+}
+
+// Explore product suitability item interface
+export interface SuitabilityItem {
+  text: string;
+  positive: boolean;
+}
+
+// Explore product nutrient highlight interface
+export interface NutrientHighlight {
+  text: string;
+  positive: boolean;
+}
+
+// Explore product interface
+export interface ExploreProduct {
+  id: number;
+  title: string;
+  brand: string;
+  images: string[];
+  description: string;
+  overview: string;
+  nutrition: string;
+  ingredients: string;
+  claims: string;
+  personalizedOverview: string;
+  suitability: SuitabilityItem[];
+  safeConsumption: string;
+  nutrientHighlights: NutrientHighlight[];
+  matchScore: number;
+}
+
+// Explore products response interface
+export interface ExploreProductsResponse {
+  data: {
+    products: ExploreProduct[];
+  };
 }
