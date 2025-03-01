@@ -6,6 +6,7 @@ import {
 } from '@clerk/nextjs';
 import { ThemeProvider } from "@/components/ui/theme-provider";
 import { Toaster } from "sonner";
+import { ChatInterface } from "./chatbot";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -64,6 +65,7 @@ export default function RootLayout({
             />
             <div className="relative">
               {children}
+              <ChatInterface />
             </div>
           </ThemeProvider>
         </body>
